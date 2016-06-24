@@ -1,0 +1,49 @@
+﻿@model IEnumerable<VideoStore.Models.Video>
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_CustomerLayoutPage.cshtml";
+}
+
+<h3>Search Results</h3>
+
+@*@using(Html.BeginForm("Details", "VideosSearch", FormMethod.Get))
+{
+    <b> Search Option: </b>
+    @Html.TextBox("continue searching")<input type="submit" name="submit" value="search" />
+}*@
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoDescription)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VideoGenre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoDescription)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.VideoGenre)
+        </td>    
+        <td>
+            @Html.ActionLink("Add to Cart", "AddToCart", new { id = item.VideoID }) 
+        </td>
+    </tr>
+}
+    
+
+</table>

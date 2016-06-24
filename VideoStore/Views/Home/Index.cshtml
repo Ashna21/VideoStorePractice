@@ -1,0 +1,26 @@
+﻿@using VideoStore.Models
+@model IEnumerable<CustomerBaseView>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+@foreach (CustomerBaseView c in Model)
+  {
+      <tr>
+          <td>
+             @c.UserId
+          </td>
+          <td>
+            @c.UserName
+          </td>
+      </tr>
+  }
+</table>

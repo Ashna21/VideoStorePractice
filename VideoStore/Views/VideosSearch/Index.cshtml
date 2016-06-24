@@ -1,0 +1,36 @@
+﻿@model IEnumerable<VideoStore.Models.Video>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_CustomerLayoutPage.cshtml";
+}
+
+<h3>Index</h3>
+
+@*@using (Html.BeginForm("Details", "VideosSearch", FormMethod.Get))
+{
+    <b> Search Option: </b>
+    @Html.TextBox("search")<input type="submit" name="submit" value="search" />
+}*@
+
+
+@using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "get", InsertionMode = InsertionMode.Replace, UpdateTargetId = "VideosList" }))
+{
+    <input type="search" name="searchTerm"/>
+    <input type="submit" value="Search By Name" />
+}
+
+<div id="VideosList">
+    @foreach(var item in Model)
+    {
+        <div>
+            <h4>
+                @item.VideoName
+            </h4>
+            <div>
+                @item.VideoGenre
+            </div>
+            <hr />
+        </div>
+    }
+</div>

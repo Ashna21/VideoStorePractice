@@ -28,7 +28,7 @@ namespace VideoStore.Models
     }
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
-    {
+    { 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
@@ -38,6 +38,8 @@ namespace VideoStore.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<VideoStore.Models.videos> videos { get; set; }
     }
 }
 

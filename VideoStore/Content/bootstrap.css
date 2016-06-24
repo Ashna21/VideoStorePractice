@@ -50,7 +50,12 @@ audio:not([controls]) {
 [hidden] {
   display: none;
 }
-
+h2{
+  color: #eeeeee; 
+}
+.iconColor{
+    color: #eeeeee;
+}
 html {
   font-family: sans-serif;
   -webkit-text-size-adjust: 100%;

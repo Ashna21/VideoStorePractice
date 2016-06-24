@@ -1,0 +1,21 @@
+﻿@model VideoStore.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = "~/Views/Shared/_CustomerLayoutPage.cshtml";
+}
+
+<h2>Register</h2>
+
+@using (Html.BeginForm("Add", "Users", FormMethod.Post, new { @class = "form" }))
+{
+    <div class="form-group">
+        @Html.LabelFor(m=>m.UserName)
+        @Html.TextBoxFor(m=>m.UserName, new { @class ="form-control"})
+    </div>
+
+    <div>
+        @Html.LabelFor(m=>m.UserEmail)
+        @Html.TextBoxFor(m=>m.UserEmail, new { @class = "form-control"})
+    </div>
+    <input type="submit" class="btn btn-primary" value="Register Me!" />
+}
